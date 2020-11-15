@@ -1,8 +1,16 @@
 # jupyterlabpymolpysnips
 
-The jupyterlabpymolpysnips library had pymol code written in Python for use in Jupyter Notebooks that source the PyMOL api.
-This library is designed for use with the multimenu-snippets extension for JupyterLab. 
+The jupyterlabpymolpysnips library had PyMOL code written in Python for use in Jupyter Notebooks that source the PyMOL api.
+This library is designed for use with the `jupyterlab-snippets-multimenu extension` for JupyterLab.
+This extension can be installed via the left panel in Jupyter (Remember to rebuild Juptyer Lab), it can be install from the terminal, or it can be installed from inside a Jupyter Notebook that has been opened in Jupyter Lab.
+
+```bash
+!pip install jupyterlab-snippets-multimenus
+!jupyter lab build
+```
+
 This repo has one library to ease its cloning into the local Jupyter library on a local machine,  Colab, JupyterHub, or the like for use in JupyterLab.
+
 
 Enter the following command to find the paths to the jupyter data dictory (use ! if doing this from a Jupyter Notebook cell):
 
