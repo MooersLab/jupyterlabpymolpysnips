@@ -2,7 +2,7 @@
 
 The jupyterlabpymolpysnips library had PyMOL code written in Python for use in Jupyter Notebooks that source the PyMOL api.
 This library is designed for use with the `jupyterlab-snippets-multimenu` [extension](https://github.com/kuanpern/jupyterlab-snippets-multimenus) for Jupyter Lab.
-This extension requires *JupyterLab >= 2.0* and *Node.js*.
+This extension requires *JupyterLab version >= 2.0* and *Node.js*.
 Node.js can be installed by one of several different software managers.
 
 This `jupyterlab-snippets-multimenu` extension can be installed via the left panel in Jupyter (remember to rebuild Juptyer Lab), it can be install from the terminal, or it can be installed from inside a Jupyter Notebook that has been opened in Jupyter Lab.
