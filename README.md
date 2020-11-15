@@ -10,10 +10,15 @@ Enter the following command to find the paths to the jupyter data dictory (use !
 !jupyter --path
 ```
 
-This path on Mac OS 10.15 is ```/Users/blaine/Library/Jupyter```.
+This path on Mac OS 10.15 is `/Users/blaine/Library/Jupyter`.
+Next make a directory called `multimenus_snippets`.
+Then move to this directory and clone the repo to the directory with the shortened name `pymolpysnips`.
+The shortened name reduces the space taken in the toolbar menu.
 
 ```bash
 !mkdir /Users/blaine/Library/Jupyter/multimenus_snippets
 !cd /Users/blaine/Library/Jupyter/multimenus_snippets
 !git clone https://github.com/MooersLab/jupyterlabpymolpysnips.git pymolpysnips
 ```
+
+The user can add their own snippets to the subfolders inside of the `pymolpysnips`. 
