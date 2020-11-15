@@ -1,0 +1,5 @@
+cmd.do('stereo walleye; ')
+cmd.do('set ray_shadow, off; ')
+cmd.do('#draw 3200,2000;')
+cmd.do('draw 1600,1000; ')
+cmd.do('png aaa.png')
