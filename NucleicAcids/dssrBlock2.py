@@ -1,0 +1,5 @@
+cmd.do('reinitialize;')
+cmd.do('run /Users/blaine/.pymol/startup/dssr_block.py;')
+cmd.do('set cartoon_nucleic_acid_color, orange;')
+cmd.do('fetch 1ehz, async=0;')
+cmd.do('dssr_block block_file=wc')
