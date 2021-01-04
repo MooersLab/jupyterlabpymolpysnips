@@ -1,34 +1,35 @@
-cmd.do('def rvr(StoredView=0, decimal_places=2, outname="roundedview.txt"):')
-cmd.do('   """MIT License')
-cmd.do('    Copyright:')
-cmd.do('    Blaine Mooers and the OU Board of Regents')
-cmd.do('    University of Oklahoma Health Sciences Center')
-cmd.do('    Oklahoma City, OK 73104')
-cmd.do('    30 April 2020')
-cmd.do('    ')
-cmd.do('    First run the following:')
-cmd.do('    ')
-cmd.do('    from rdkit.Chem import PyMol')
-cmd.do('    s = PyMol.MolViewer()')
-cmd.do('    du = s.server.do')
-cmd.do('')
-cmd.do('    """')
-cmd.do('    StoredView = int(StoredView) decimal_places = int(decimal_places)')
-cmd.do('    #call the get_view function')
-cmd.do('    m = s.get_view(StoredView)')
-cmd.do('    #Make a list of the elements in the orientation matrix.')
-cmd.do('    myList = [m[0], m[1], m[2], m[3], m[4], m[5], m[6],m[7], m[8], m[9], ')
-cmd.do('              m[10], m[11], m[12], m[13], m[14],m[15], m[16], m[17]]')
-cmd.do('    #Round off the matrix elements to two decimal places (two fractional places)')
-cmd.do('    #This rounding approach solved the problem of unwanted')
-cmd.do('    #whitespaces when I tried to use a string format statement')
-cmd.do('    myRoundedList = [round(elem, decimal_places) for elem in myList]')
-cmd.do('    #x is the string template for the output. The whitespace is required')
-cmd.do('    #between the "set_view" and "("')
-cmd.do('    x = 'set_view ({0,{1,{2,{3,{4,{5,{6,{7,{8,{9,{10,{11,{12,{13,{14,{15,{16,{17);'')
-cmd.do('    # Print to the command history window.')
-cmd.do('    print(x.format(*myRoundedList))')
-cmd.do('    #Write to a text file.')
-cmd.do('    myFile = open("roundedview.txt", "a") myFile.write(x.format(*myRoundedList) + "") myFile.close()')
-cmd.do('    return myRoundedList')
-cmd.do('du.extend("rvr", rvr)')
+def rvr(StoredView=0, decimal_places=2, outname="roundedview.txt"):
+   """MIT License
+    Copyright:
+    Blaine Mooers and the OU Board of Regents
+    University of Oklahoma Health Sciences Center
+    Oklahoma City, OK 73104
+    30 April 2020
+    
+    First run the following:
+    
+    from rdkit.Chem import PyMol
+    s = PyMol.MolViewer()
+    du = s.server.do
+
+    """
+    StoredView = int(StoredView) decimal_places = int(decimal_places)
+    #call the get_view function
+    m = s.get_view(StoredView)
+    #Make a list of the elements in the orientation matrix.
+    myList = [m[0], m[1], m[2], m[3], m[4], m[5], m[6],m[7], m[8], m[9], 
+              m[10], m[11], m[12], m[13], m[14],m[15], m[16], m[17]]
+    #Round off the matrix elements to two decimal places (two fractional places)
+    #This rounding approach solved the problem of unwanted
+    #whitespaces when I tried to use a string format statement
+    myRoundedList = [round(elem, decimal_places) for elem in myList]
+    #x is the string template for the output. The whitespace is required
+    #between the "set_view" and "("
+    x = 'set_view ({0,{1,{2,{3,{4,{5,{6,{7,{8,{9,{10,{11,{12,{13,{14,{15,{16,{17);'
+    # Print to the command history window.
+    print(x.format(*myRoundedList))
+    #Write to a text file.
+    myFile = open("roundedview.txt", "a") myFile.write(x.format(*myRoundedList) + "") myFile.close()
+    return myRoundedList
+du.extend("rvr", rvr)
+
