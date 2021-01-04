@@ -39,7 +39,7 @@ juptyer lab
 
 The penultimate command is a quick test the environment's python interpreter can load the pymol API.
 Select the kernel named juppymol after starting JuptyerLab.
-You should be a pymol menu in the menu toolbar of the JuptyerLab GUI.
+You should see a pymol menu and pymol+ menu in the menu toolbar of the JuptyerLab GUI.
 This menu leads to a cascade of submenus and the individual snippet files.
 
 
@@ -74,6 +74,9 @@ git clone https://github.com/MooersLab/jupyterlabpymolpysnipsplus.git pymol+
 
 The penultimate command is a quick test the environment's python interpreter can load the pymol API.
 Select the kernel named juppymol after starting JuptyerLab.
-You should be a pymol menu in the menu toolbar of the JuptyerLab GUI.
+You should see a pymol menu and pymol+ menu in the menu toolbar of the JuptyerLab GUI.
 This menu leads to a cascade of submenus and the individual snippet files.
+
+A manuscript about this project is under review.
+
 
