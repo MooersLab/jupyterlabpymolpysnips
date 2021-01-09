@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4429718.svg)](https://doi.org/10.5281/zenodo.4429718)
+
 # jupyterlabpymolpysnips
 
 The jupyterlabpymolpysnips library has PyMOL code written in Python for use in Jupyter Notebooks that are being edited by JuptyerLab and that source the PyMOL API.
