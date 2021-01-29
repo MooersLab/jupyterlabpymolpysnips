@@ -1,1 +1,1 @@
-cmd.do('select substrates, organic;')
+cmd.do('select ligand, organic;')

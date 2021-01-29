@@ -1,1 +1,1 @@
-cmd.do('select ${!:se; resi 1-100;')
+cmd.do('select ${!:se; resi  1:100;')

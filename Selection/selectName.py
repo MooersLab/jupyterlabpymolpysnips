@@ -1,1 +1,1 @@
-cmd.do('select oxygen2, name O2')
+cmd.do('select oxygen2, name O2;')

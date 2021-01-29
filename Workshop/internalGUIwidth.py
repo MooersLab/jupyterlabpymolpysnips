@@ -1,1 +1,1 @@
-cmd.do('internal_gui_width=%{1:20;')
+cmd.do('set internal_gui_width=0;')

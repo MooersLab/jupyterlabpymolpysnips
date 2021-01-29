@@ -1,32 +1,32 @@
-cmd.do('# Copyright (c) 2004 Robert L. Campbell')
-cmd.do('#')
-cmd.do('# Modified for use with Python3.')
-cmd.do('# Jan. 29, 2020 ')
-cmd.do('# Blaine Mooers, PhD')
-cmd.do('# Univ. of Oklahoma Health Sciences Center')
-cmd.do('#')
-cmd.do('#')
-cmd.do('from pymol import cmd')
-cmd.do('import glob')
-cmd.do('')
-cmd.do('def loadFiles(files):')
-cmd.do('  """')
-cmd.do('  load_files <files>')
-cmd.do('')
-cmd.do('  loads multiple files (using filename globbing)')
-cmd.do('  into a multiple objects named as the files are (e.g. collection of')
-cmd.do('  downloaded PDB files).')
-cmd.do('')
-cmd.do('  e.g. load_files prot_*.pdb')
-cmd.do('  """')
-cmd.do('  file_list = glob.glob(files)')
-cmd.do('  if file_list:')
-cmd.do('    file_list.sort()')
-cmd.do('    for i in file_list:')
-cmd.do('      #obj_name = i.replace('.pdb','')')
-cmd.do('      #cmd.load(file_list[i],obj_name)')
-cmd.do('      cmd.load(i)')
-cmd.do('  else:')
-cmd.do('    print("No files found for pattern %s" % files)')
-cmd.do('')
-cmd.do('cmd.extend('loadFiles',loadFiles)')
+# Copyright (c) 2004 Robert L. Campbell
+#
+# Modified for use with Python3.
+# Jan. 29, 2020 
+# Blaine Mooers, PhD
+# Univ. of Oklahoma Health Sciences Center
+#
+#
+from pymol import cmd
+import glob
+
+def loadFiles(files):
+  """
+  load_files <files>
+
+  loads multiple files (using filename globbing)
+  into a multiple objects named as the files are (e.g. collection of
+  downloaded PDB files).
+
+  e.g. load_files prot_*.pdb
+  """
+  file_list = glob.glob(files)
+  if file_list:
+    file_list.sort()
+    for i in file_list:
+      #obj_name = i.replace(".pdb","")
+      #cmd.load(file_list[i],obj_name)
+      cmd.load(i)
+  else:
+    print("No files found for pattern %s" % files)
+
+cmd.extend("loadFiles",loadFiles)

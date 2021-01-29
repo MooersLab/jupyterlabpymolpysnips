@@ -1,161 +1,161 @@
-cmd.do('#!python')
-cmd.do(' ')
-cmd.do('##############################################################################')
-cmd.do('#')
-cmd.do('# @SUMMARY: -- QKabsch.py.  A python implementation of the optimal superposition')
-cmd.do('#     of two sets of vectors as proposed by Kabsch 1976 & 1978.')
-cmd.do('#')
-cmd.do('# @AUTHOR: Jason Vertrees')
-cmd.do('# @COPYRIGHT: Jason Vertrees (C), 2005-2007')
-cmd.do('# @LICENSE: Released under GPL:')
-cmd.do('# This program is free software; you can redistribute it and/or modify')
-cmd.do('#    it under the terms of the GNU General Public License as published by')
-cmd.do('#    the Free Software Foundation; either version 2 of the License, or')
-cmd.do('#    (at your option) any later version.')
-cmd.do('# This program is distributed in the hope that it will be useful, but WITHOUT')
-cmd.do('# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS')
-cmd.do('# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.')
-cmd.do('#')
-cmd.do('# You should have received a copy of the GNU General Public License along with')
-cmd.do('# this program; if not, write to the Free Software Foundation, Inc., 51 Franklin')
-cmd.do('# Street, Fifth Floor, Boston, MA 02110-1301, USA ')
-cmd.do('#')
-cmd.do('# DATE  : 2007-01-01')
-cmd.do('# REV   : 2')
-cmd.do('# REQUIREMENTS: numpy')
-cmd.do('#')
-cmd.do('#')
-cmd.do('# Modified optAlign.py to use C1' carbon atoms of RNA for alignment.')
-cmd.do('# Jan. 29, 2020 ')
-cmd.do('# Blaine Mooers, PhD')
-cmd.do('# Univ. of Oklahoma Health Sciences Center')
-cmd.do('#')
-cmd.do('#############################################################################')
-cmd.do('from array import *')
-cmd.do(' ')
-cmd.do('# system stuff')
-cmd.do('import os')
-cmd.do('import copy')
-cmd.do(' ')
-cmd.do('# pretty printing')
-cmd.do('import pprint')
-cmd.do(' ')
-cmd.do('# for importing as a plugin into PyMol')
-cmd.do('from pymol import cmd')
-cmd.do('from pymol import stored')
-cmd.do('from pymol import selector')
-cmd.do(' ')
-cmd.do('# using numpy for linear algebra')
-cmd.do('import numpy')
-cmd.do(' ')
-cmd.do('def optAlignRNA( sel1, sel2 ):')
-cmd.do('	"""')
-cmd.do('	optAlignRNA performs the Kabsch alignment algorithm upon the C1' carbons of two selections.')
-cmd.do('	Example: optAlignRNA 1JU7 and i. 1-16 and n. C1', 1CLL and i. 4-146 and n. C1'')
-cmd.do(' ')
-cmd.do('	Two RMSDs are returned.  One comes from the Kabsch algorithm and the other from')
-cmd.do('	PyMOL based upon your selections.')
-cmd.do('	')
-cmd.do('	This function can be run in a for loop to fit multiple structures  with a common prefix name:')
-cmd.do('	')
-cmd.do('	for x in cmd.get_names(): optAlignRNA(x, "1JU7_0001")')
-cmd.do('	 ')
-cmd.do('	or get the rmsds for all combinations, do the following:')
-cmd.do('	 ')
-cmd.do('	[[optAlignRNA(x, y) for x in cmd.get_names()] for y in cmd.get_names()]')
-cmd.do('')
-cmd.do('	"""')
-cmd.do('	cmd.reset()')
-cmd.do(' ')
-cmd.do('	# make the lists for holding coordinates')
-cmd.do('	# partial lists')
-cmd.do('	stored.sel1 = []')
-cmd.do('	stored.sel2 = []')
-cmd.do('	# full lists')
-cmd.do('	stored.mol1 = []')
-cmd.do('	stored.mol2 = []')
-cmd.do(' ')
-cmd.do('	# -- CUT HERE')
-cmd.do('	sel1 += " and N. C1'"')
-cmd.do('	sel2 += " and N. C1'"')
-cmd.do('	# -- CUT HERE')
-cmd.do(' ')
-cmd.do('	# Get the selected coordinates.  We')
-cmd.do('	# align these coords.')
-cmd.do('	cmd.iterate_state(1, selector.process(sel1), "stored.sel1.append([x,y,z])")')
-cmd.do('	cmd.iterate_state(1, selector.process(sel2), "stored.sel2.append([x,y,z])")')
-cmd.do(' ')
-cmd.do('	# get molecule name')
-cmd.do('	mol1 = cmd.identify(sel1,1)[0][0]')
-cmd.do('	mol2 = cmd.identify(sel2,1)[0][0]')
-cmd.do(' ')
-cmd.do('	# Get all molecule coords.  We do this because')
-cmd.do('	# we have to rotate the whole molcule, not just')
-cmd.do('	# the aligned selection')
-cmd.do('	cmd.iterate_state(1, mol1, "stored.mol1.append([x,y,z])")')
-cmd.do('	cmd.iterate_state(1, mol2, "stored.mol2.append([x,y,z])")')
-cmd.do(' ')
-cmd.do('	# check for consistency')
-cmd.do('	assert len(stored.sel1) == len(stored.sel2)')
-cmd.do('	L = len(stored.sel1)')
-cmd.do('	assert L > 0')
-cmd.do(' ')
-cmd.do('	# must alway center the two proteins to avoid')
-cmd.do('	# affine transformations.  Center the two proteins')
-cmd.do('	# to their selections.')
-cmd.do('	COM1 = numpy.sum(stored.sel1,axis=0) / float(L)')
-cmd.do('	COM2 = numpy.sum(stored.sel2,axis=0) / float(L)')
-cmd.do('	stored.sel1 -= COM1')
-cmd.do('	stored.sel2 -= COM2')
-cmd.do(' ')
-cmd.do('	# Initial residual, see Kabsch.')
-cmd.do('	E0 = numpy.sum( numpy.sum(stored.sel1 * stored.sel1,axis=0),axis=0) + numpy.sum( numpy.sum(stored.sel2 * stored.sel2,axis=0),axis=0)')
-cmd.do(' ')
-cmd.do('	#')
-cmd.do('	# This beautiful step provides the answer.  V and Wt are the orthonormal')
-cmd.do('	# bases that when multiplied by each other give us the rotation matrix, U.')
-cmd.do('	# S, (Sigma, from SVD) provides us with the error!  Isn't SVD great!')
-cmd.do('	V, S, Wt = numpy.linalg.svd( numpy.dot( numpy.transpose(stored.sel2), stored.sel1))')
-cmd.do(' ')
-cmd.do('	# we already have our solution, in the results from SVD.')
-cmd.do('	# we just need to check for reflections and then produce')
-cmd.do('	# the rotation.  V and Wt are orthonormal, so their det's')
-cmd.do('	# are +/-1.')
-cmd.do('	reflect = float(str(float(numpy.linalg.det(V) * numpy.linalg.det(Wt))))')
-cmd.do(' ')
-cmd.do('	if reflect == -1.0:')
-cmd.do('		S[-1] = -S[-1]')
-cmd.do('		V[:,-1] = -V[:,-1]')
-cmd.do(' ')
-cmd.do('	RMSD = E0 - (2.0 * sum(S))')
-cmd.do('	RMSD = numpy.sqrt(abs(RMSD / L))')
-cmd.do(' ')
-cmd.do('	#U is simply V*Wt')
-cmd.do('	U = numpy.dot(V, Wt)')
-cmd.do(' ')
-cmd.do('	# rotate and translate the molecule')
-cmd.do('	stored.sel2 = numpy.dot((stored.mol2 - COM2), U)')
-cmd.do('	stored.sel2 = stored.sel2.tolist()')
-cmd.do('	# center the molecule')
-cmd.do('	stored.sel1 = stored.mol1 - COM1')
-cmd.do('	stored.sel1 = stored.sel1.tolist()')
-cmd.do(' ')
-cmd.do('	# let PyMol know about the changes to the coordinates')
-cmd.do('	cmd.alter_state(1,mol1,"(x,y,z)=stored.sel1.pop(0)")')
-cmd.do('	cmd.alter_state(1,mol2,"(x,y,z)=stored.sel2.pop(0)")')
-cmd.do(' ')
-cmd.do('	#print("Moved: %s Reference: %s RMSD = %f" % mol1, mol2, RMSD)')
-cmd.do('	print("% s, % s,% 5.3f" % (mol1, mol2, RMSD))')
-cmd.do(' ')
-cmd.do('	# make the alignment OBVIOUS')
-cmd.do('	cmd.hide('everything')')
-cmd.do('	cmd.show('ribbon', sel1 + ' or ' + sel2)')
-cmd.do('	cmd.color('gray70', mol1 )')
-cmd.do('	cmd.color('magenta', mol2 )')
-cmd.do('	cmd.color('red', 'visible')')
-cmd.do('	cmd.show('ribbon', 'not visible')')
-cmd.do('	cmd.center('visible')')
-cmd.do('	cmd.orient()')
-cmd.do('	cmd.zoom('visible')')
-cmd.do(' ')
-cmd.do('cmd.extend("optAlignRNA", optAlignRNA)')
+python
+ ##############################################################################
+#
+# @SUMMARY: -- QKabsch.py.  A python implementation of the optimal superposition
+#     of two sets of vectors as proposed by Kabsch 1976 & 1978.
+#
+# @AUTHOR: Jason Vertrees
+# @COPYRIGHT: Jason Vertrees (C), 2005-2007
+# @LICENSE: Released under GPL:
+# This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program; if not, write to the Free Software Foundation, Inc., 51 Franklin
+# Street, Fifth Floor, Boston, MA 02110-1301, USA 
+#
+# DATE  : 2007-01-01
+# REV   : 2
+# REQUIREMENTS: numpy
+#
+#
+# Modified optAlign.py to use C1' carbon atoms of RNA for alignment.
+# Jan. 29, 2020 
+# Blaine Mooers, PhD
+# Univ. of Oklahoma Health Sciences Center
+#
+#############################################################################
+from array import *
+ 
+# system stuff
+import os
+import copy
+ 
+# pretty printing
+import pprint
+ 
+# for importing as a plugin into PyMol
+from pymol import cmd
+from pymol import stored
+from pymol import selector
+ 
+# using numpy for linear algebra
+import numpy
+ 
+def optAlignRNA( sel1, sel2 ):
+	"""
+	optAlignRNA performs the Kabsch alignment algorithm upon the C1' carbons of two selections.
+	Example: optAlignRNA 1JU7 and i. 1-16 and n. C1', 1CLL and i. 4-146 and n. C1'
+ 
+	Two RMSDs are returned.  One comes from the Kabsch algorithm and the other from
+	PyMOL based upon your selections.
+	
+	This function can be run in a for loop to fit multiple structures  with a common prefix name:
+	
+	for x in cmd.get_names(): optAlignRNA(x, "1JU7_0001")
+	 
+	or get the rmsds for all combinations, do the following:
+	 
+	[[optAlignRNA(x, y) for x in cmd.get_names()] for y in cmd.get_names()]
+
+	"""
+	cmd.reset()
+ 
+	# make the lists for holding coordinates
+	# partial lists
+	stored.sel1 = []
+	stored.sel2 = []
+	# full lists
+	stored.mol1 = []
+	stored.mol2 = []
+ 
+	# -- CUT HERE
+	sel1 += " and N. C1'"
+	sel2 += " and N. C1'"
+	# -- CUT HERE
+ 
+	# Get the selected coordinates.  We
+	# align these coords.
+	cmd.iterate_state(1, selector.process(sel1), "stored.sel1.append([x,y,z])")
+	cmd.iterate_state(1, selector.process(sel2), "stored.sel2.append([x,y,z])")
+ 
+	# get molecule name
+	mol1 = cmd.identify(sel1,1)[0][0]
+	mol2 = cmd.identify(sel2,1)[0][0]
+ 
+	# Get all molecule coords.  We do this because
+	# we have to rotate the whole molcule, not just
+	# the aligned selection
+	cmd.iterate_state(1, mol1, "stored.mol1.append([x,y,z])")
+	cmd.iterate_state(1, mol2, "stored.mol2.append([x,y,z])")
+ 
+	# check for consistency
+	assert len(stored.sel1) == len(stored.sel2)
+	L = len(stored.sel1)
+	assert L > 0
+ 
+	# must alway center the two proteins to avoid
+	# affine transformations.  Center the two proteins
+	# to their selections.
+	COM1 = numpy.sum(stored.sel1,axis=0) / float(L)
+	COM2 = numpy.sum(stored.sel2,axis=0) / float(L)
+	stored.sel1 -= COM1
+	stored.sel2 -= COM2
+ 
+	# Initial residual, see Kabsch.
+	E0 = numpy.sum( numpy.sum(stored.sel1 * stored.sel1,axis=0),axis=0) + numpy.sum( numpy.sum(stored.sel2 * stored.sel2,axis=0),axis=0)
+ 
+	#
+	# This beautiful step provides the answer.  V and Wt are the orthonormal
+	# bases that when multiplied by each other give us the rotation matrix, U.
+	# S, (Sigma, from SVD) provides us with the error!  Isn't SVD great!
+	V, S, Wt = numpy.linalg.svd( numpy.dot( numpy.transpose(stored.sel2), stored.sel1))
+ 
+	# we already have our solution, in the results from SVD.
+	# we just need to check for reflections and then produce
+	# the rotation.  V and Wt are orthonormal, so their det's
+	# are +/-1.
+	reflect = float(str(float(numpy.linalg.det(V) * numpy.linalg.det(Wt))))
+ 
+	if reflect == -1.0:
+		S[-1] = -S[-1]
+		V[:,-1] = -V[:,-1]
+ 
+	RMSD = E0 - (2.0 * sum(S))
+	RMSD = numpy.sqrt(abs(RMSD / L))
+ 
+	#U is simply V*Wt
+	U = numpy.dot(V, Wt)
+ 
+	# rotate and translate the molecule
+	stored.sel2 = numpy.dot((stored.mol2 - COM2), U)
+	stored.sel2 = stored.sel2.tolist()
+	# center the molecule
+	stored.sel1 = stored.mol1 - COM1
+	stored.sel1 = stored.sel1.tolist()
+ 
+	# let PyMol know about the changes to the coordinates
+	cmd.alter_state(1,mol1,"(x,y,z)=stored.sel1.pop(0)")
+	cmd.alter_state(1,mol2,"(x,y,z)=stored.sel2.pop(0)")
+ 
+	#print("Moved: %s Reference: %s RMSD = %f" % mol1, mol2, RMSD)
+	print("% s, % s,% 5.3f" % (mol1, mol2, RMSD))
+ 
+	# make the alignment OBVIOUS
+	cmd.hide("everything")
+	cmd.show("ribbon", sel1 + " or " + sel2)
+	cmd.color("gray70", mol1 )
+	cmd.color("magenta", mol2 )
+	cmd.color("red", "visible")
+	cmd.show("ribbon", "not visible")
+	cmd.center("visible")
+	cmd.orient()
+	cmd.zoom("visible")
+ 
+cmd.extend("optAlignRNA", optAlignRNA)
+python end

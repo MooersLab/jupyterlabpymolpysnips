@@ -1,1 +1,1 @@
-cmd.do('select oxygen, elem O')
+cmd.do('select oxygen, elem O;')

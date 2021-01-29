@@ -1,1 +1,1 @@
-cmd.do('set ellipsoid_color, color;')
+cmd.do('set ellipsoid_color, red;')

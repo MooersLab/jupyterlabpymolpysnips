@@ -1,0 +1,8 @@
+cmd.do('python;')
+cmd.do('for i in range(1,21):')
+cmd.do('     name = "label%d" % i;')
+cmd.do('     cmd.pseudoatom(name, label="label font id %d" % i, pos=(0,0,0));')
+cmd.do('     cmd.set("label_font_id", i, name);')
+cmd.do('python end;')
+cmd.do('cmd.set("label_size", 50);')
+cmd.do('cmd.set("grid_mode");')

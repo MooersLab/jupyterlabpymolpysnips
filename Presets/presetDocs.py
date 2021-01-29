@@ -1,1 +1,0 @@
-cmd.do('help(preset)')

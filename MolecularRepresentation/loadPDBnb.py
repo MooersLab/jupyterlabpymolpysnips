@@ -1,4 +1,4 @@
-cmd.do('fetch 3nd3,name=3nd3, type=pdb, async=0;')
+cmd.do('fetch 3nd3, name=3nd3, type=pdb, async=0;')
 cmd.do('orient;')
 cmd.do('set stick_radius, 1.2;')
 cmd.do('hide (name H*);')

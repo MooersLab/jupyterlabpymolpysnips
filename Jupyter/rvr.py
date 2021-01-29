@@ -25,7 +25,7 @@ def rvr(StoredView=0, decimal_places=2, outname="roundedview.txt"):
     myRoundedList = [round(elem, decimal_places) for elem in myList]
     #x is the string template for the output. The whitespace is required
     #between the "set_view" and "("
-    x = 'set_view ({0,{1,{2,{3,{4,{5,{6,{7,{8,{9,{10,{11,{12,{13,{14,{15,{16,{17);'
+    x = "set_view ({0,{1,{2,{3,{4,{5,{6,{7,{8,{9,{10,{11,{12,{13,{14,{15,{16,{17);"
     # Print to the command history window.
     print(x.format(*myRoundedList))
     #Write to a text file.
