@@ -159,11 +159,11 @@ Questions about PyMOL should be directed to the [PyMOL Mailing List](https://pym
 
 <a id="requests"><h2>Contriubting</h2></a>
 
-Snippets of new code are mnost welcome. Send to [e-mail](#contact-information) to me.
+Snippets of new code are most welcome. Send to [e-mail](#contact-information).
 
-- submit the Python code in a plain text file
-- write the filenames and function names in camelCase 
-- provide a description of what the code does and any citations or links to further information.
+- Submit the Python code in a plain text file
+- Write the filenames and function names in camelCase 
+- Provide a description of what the code does in one to several sentences, an examples of usage, and any citations or links to further information.
 
 
 
@@ -203,6 +203,3 @@ I can be reached via the Issue tab above or via e-mail: `blaine-mooers at ouhsc.
 <a id="citation"><h2>Citation</h2></a>
 
 If you use this library to make figures for publication, please see the Citation.md file above.
-
-
-
