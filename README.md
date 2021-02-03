@@ -6,6 +6,7 @@ For a list of the snippets and their descriptions, go to the [GitHub Page](https
 <a id="table-of-contents"><h2>Table of Contents</h2></a>
 
 * [Motivation](#motivation)
+* [New to scripting in PyMOL](#new)
 * [Tech Stack](#technology-stack)
 * [Installation](#installation)
 * [Configuration Setup](#configuration-setup)
@@ -66,13 +67,15 @@ The input to and output from the terminal can be captured in a Jupyter Notebook.
 You still carry on with your modern reproducible research practices with legacy code.
 
 
-## But I will miss the interactive viewport in PyMOL!
+### But I will miss the interactive viewport in PyMOL!
 
 1. There is nothing stopping you from running the PyMOL GUI next to your JupyterLab session. You can adjust the molecule's orientation manual, run the **get_view** command, and copy the output in the command history window from PyMOL and paste it into a cell in the Juptyer Notebook. The one line of settings return by the **rv** shortcut are much easier to work with. 
 2. You really do not need the veiwport. With 10-15 minutes of practive, you can master the rapid iterating of rotate and translate commands to adjust the molecule's orientation with greater precision than via manipulation of the mouse.
 
+[Return to Table of Contents](#table-of-contents)
 
-## New to PyMOL scripting?
+
+<a id="new"><h2>New to PyMOL scripting?</h2></a>
 
 If you are not ready to write PyMOL scripts, please consider using [PyMOL shortcuts](https://github.com/MooersLab/pymolshortcuts) to enhance your productivity in PyMOL interactive sessions.
 For example, the above ambient occlussion effect can be invoked at anytime by entering `AO` at the PyMOL prompt, if the pymolshortcuts.py file has been loaded.
@@ -82,10 +85,7 @@ The juptyerlabpymolpysnips library contains 260 code fragments (i.e, templates o
 This API is only available for recent versions of PyMOL that depend on Python3.
 This API is available for both the incentive and open-source versions of PyMOL.
 
-For more details on using the snippets, a gallery of output, the supported text editors, **library installation**, and the content of the library, please see the associated [GitHub Page](https://mooerslab.github.io/jupyterlabpymolpysnips/).
-
-
-
+[Return to Table of Contents](#table-of-contents)
 
 
 <a id="technology-stack"><h2>Technology Stack</h2></a>
@@ -147,9 +147,9 @@ Try the **ao.py** snippet. You should get a result similar to the one should in 
 
 
 
-<a id="requests"><h2>Requests for new snippets and text editors</h2></a>
+<a id="requests"><h2>Requests for new snippets</h2></a>
 
-Please use the **Issues tab** above to request support for additional text editors, to suggest additional snippets, or to ask questions.
+Please use the **Issues tab** above to request support for additional snippets or to ask questions.
 Alternatiley, you can send [e-mail](#contact-information) to me.
 
 Questions about PyMOL should be directed to the [PyMOL Mailing List](https://pymolwiki.org/index.php/PyMOL_mailing_list).
@@ -165,12 +165,12 @@ Snippets of new code are most welcome. Send to [e-mail](#contact-information).
 - Write the filenames and function names in camelCase 
 - Provide a description of what the code does in one to several sentences, an examples of usage, and any citations or links to further information.
 
+[Return to Table of Contents](#table-of-contents)
 
 
 <a id="bugreports"><h2>Bug reports</h2></a>
 
 Use the **Issues tab** above to report bugs or send [e-mail](#contact-information) to me.
-Refer bugs in the text editors to the developers of the text editors.
 
 [Return to Table of Contents](#table-of-contents)
 
