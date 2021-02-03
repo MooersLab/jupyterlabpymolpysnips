@@ -13,6 +13,7 @@ For a list of the snippets and their descriptions, go to the [GitHub Page](https
 * [Testing](#testing)
 * [Requests for new snippets and text editors](#requests)
 * [Bug reports](#bugreports)
+* [Roadmaps](#roadmap)
 * [License](#license)
 * [Contact Information](#contact-information)
 * [How to cite](#citation)
@@ -110,7 +111,7 @@ Note that multiple versions of PyMOL can operate side-by-side on a computer, so 
 
 <a id="installation"><h2>Installation</h2></a>
 
-Unfortunately, GitHub does not yet provide an easy way to download part of a repository. 
+Unfortunately, GitHub does not yet provide an easy way to download part of a repository.
 It is easier to download the whole repository, pull out the parts that you need, and delete the rest.
 Setting up and maintaining 18 separate repositories was too unwieldy.
 
@@ -125,7 +126,7 @@ See the [GitHub Page](https://mooerslab.github.io/pymolsnips/) for installation 
 
 <a id="configuration-setup"><h2>Configuration Setup</h2></a>
 
-The snippet libraries are independent of PyMOL. 
+The snippet library is independent of PyMOL. 
 No modification of PyMOL is required. 
 
 [Return to Table of Contents](#table-of-contents)
@@ -133,15 +134,14 @@ No modification of PyMOL is required.
 
 <a id="usage"><h2>Usage</h2></a>
 
-Examples of the snippets in use in various editors are found in the animated gifs on the [GitHub Page](https://mooerslab.github.io/jupyterlabpymolpysnips/). 
-These gifs convey the essential knowledge in seconds.
+The animation at the top of the page conveys the essential knowledge for usage. 
 
 [Return to Table of Contents](#table-of-contents)
 
 
 <a id="testing"><h2>Testing</h2></a>
 
-Try the **ao** snippet. You should get a result similar to the one should in the demo above.
+Try the **ao.py** snippet. You should get a result similar to the one should in the animation above.
 
 [Return to Table of Contents](#table-of-contents)
 
@@ -157,12 +157,32 @@ Questions about PyMOL should be directed to the [PyMOL Mailing List](https://pym
 [Return to Table of Contents](#table-of-contents)
 
 
+<a id="requests"><h2>Contriubting</h2></a>
+
+Snippets of new code are mnost welcome. Send to [e-mail](#contact-information) to me.
+
+- submit the Python code in a plain text file
+- write the filenames and function names in camelCase 
+- provide a description of what the code does and any citations or links to further information.
+
+
+
 <a id="bugreports"><h2>Bug reports</h2></a>
 
 Use the **Issues tab** above to report bugs or send [e-mail](#contact-information) to me.
 Refer bugs in the text editors to the developers of the text editors.
 
 [Return to Table of Contents](#table-of-contents)
+
+
+<a id="roadmap"><h2>Roadmap</h2></a>
+
+I plan to expand the library to cover with examples the 500 commands and 600 settings in PyMOL.
+
+
+[Return to Table of Contents](#table-of-contents)
+
+
 
 
 <a id="license"><h2>License</h2></a>
