@@ -113,16 +113,33 @@ Note that multiple versions of PyMOL can operate side-by-side on a computer, so 
 
 [Return to Table of Contents](#table-of-contents)
 
-<a id="installation"><h2>Installation</h2></a>
+<a id="installation"><h2>Installation of the snippet libray</h2></a>
 
-Unfortunately, GitHub does not yet provide an easy way to download part of a repository.
-It is easier to download the whole repository, pull out the parts that you need, and delete the rest.
-Setting up and maintaining 18 separate repositories was too unwieldy.
+Assuming that JupyterLab, jupyterlab-snippets-multimenus, and PyMOL are aleardy installed, run the following commands one line at a time,
 
-Download all of the libraries by using the command `git clone https://github.com/MooersLab/pymolsnips.git` in a terminal window if you have *git* installed.
-Alternatively, you download the repository as a zip file by clicking on the green **code** button above.
+```bash
+jupyter --path
+cd ~/.local/share/jupyter # change as per output from prior line. Use cd ~/Library/Jupyter on the Mac.
+mkdir multimenus_snippets
+cd multimenus_snippets
+git clone https://github.com/MooersLab/jupyterlabpymolpysnips.git pymol
+git clone https://github.com/MooersLab/jupyterlabpymolpysnipsplus.git pymol+
+````
 
-See the [GitHub Page](https://mooerslab.github.io/pymolsnips/) for installation instructions for several operating systems.
+The snippets in the pymolsnip+ library have a second copy of the code in a comment with the tab stops marked as follows `${1:default value}`.
+Tab stops are sites of parameter values that may need to be edited to customize the snippet.
+In most text editors, you hit tab to advance to the next tab stop.
+JuptyerLab does not yet support tab stops.
+(If you want to use tab stops in a text editor, visit the [pymolsnips progject](https://github.com/MooersLab/pymolsnips)).
+Use the pymol+ library when you need guidance in editing a snippet.
+The content of the active part of the snippet is the same in both libraries.
+The commented code in the pymol+ snip library may annoy experineced users who do not need help with editing.
+
+
+
+
+Alternatively, you can download the repository as a zip file by clicking on the green **code** button above.
+
 
 [Return to Table of Contents](#table-of-contents)
 
