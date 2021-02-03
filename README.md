@@ -179,7 +179,6 @@ Use the **Issues tab** above to report bugs or send [e-mail](#contact-informatio
 
 I plan to expand the library to cover with examples the 500 commands and 600 settings in PyMOL.
 
-
 [Return to Table of Contents](#table-of-contents)
 
 
@@ -203,3 +202,6 @@ I can be reached via the Issue tab above or via e-mail: `blaine-mooers at ouhsc.
 <a id="citation"><h2>Citation</h2></a>
 
 If you use this library to make figures for publication, please see the Citation.md file above.
+
+[Return to Table of Contents](#table-of-contents)
+
