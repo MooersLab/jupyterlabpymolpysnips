@@ -96,19 +96,19 @@ This API is available for both the incentive and open-source versions of PyMOL.
 
 | Technology | Version| Description                 |
 |------------|--------------|-----------------------------|
-| PyMOL   2.4   |   2.4    | Molecular graphics program         | 
-| Python  3.7-3.9 | 3.7-3.9      |  Programming language          |
-| JupyterLab  | 2.2   | A IDE for editing Jupyter Notebooks|
-| [jupyterlab-snippets-multimens](https://pypi.org/project/jupyterlab-snippets-multimenus/) | 0.1.2 | Required extension |
+| [PyMOL](https://pymol.org/2/) |   2.4    | Molecular graphics program         | 
+| Python | 3.7-3.9      |  Programming language          |
+| [JupyterLab](https://pypi.org/project/jupyterlab/)  | 2.2   | A IDE for editing Jupyter Notebooks|
+| [jupyterlab-snippets-multimenus](https://pypi.org/project/jupyterlab-snippets-multimenus/) | 0.1.2 | Required extension |
 | Node.js     |        | Required by Jupyter and many exensions |
 
 
 
 Some of the snippets are limited to Python3 code.
-If you are using an ancient version of PyMOL that relies on Python2, you can buy a license to the current version of PyMOL, install a free open-source version of PyMOL that depends on Python3 (See the PyMOL Wiki), or you can rewrite the snippet's code to be Python2 compliant. 
+If you are using an ancient version of PyMOL that relies on Python2, you can buy a license to the current version of PyMOL, install a free open-source version of PyMOL that depends on Python3 (See the [PyMOL Wiki](https://pymolwiki.org/index.php/Main_Page)), or you can rewrite the snippet's code to be Python2 compliant. 
 This often merely involves replacing print statements in Python2 with print() functions in Python3.
 The commandline program 2to3 automates this process. 
-Note that multiple versions of PyMOL can operate side-by-side on a computer, so yffffou do not have to delete that ancient version of PyMOL.
+Note that multiple versions of PyMOL can operate side-by-side on a computer, so you do not have to delete that ancient version of PyMOL.
 
 
 [Return to Table of Contents](#table-of-contents)
