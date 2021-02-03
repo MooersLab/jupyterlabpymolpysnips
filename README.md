@@ -38,6 +38,8 @@ There is no option in a pulldown menu in PyMOL to make such an image.
 A script file with 17 commands is required.
 This code can be applied to any molecular object that has been loaded into PyMOL.
 
+[Return to Table of Contents](#table-of-contents)
+
 
 ### Why run PyMOL in a Jupyter Notebook?
 
@@ -65,6 +67,8 @@ You may have trouble running a Python2 kernel in JuptyerLab installed to run wit
 No worries, many of these programs can also be run from the terminal.
 The input to and output from the terminal can be captured in a Jupyter Notebook.
 You still carry on with your modern reproducible research practices with legacy code.
+
+[Return to Table of Contents](#table-of-contents)
 
 
 ### But I will miss the interactive viewport in PyMOL!
