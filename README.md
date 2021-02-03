@@ -95,7 +95,7 @@ This API is available for both the incentive and open-source versions of PyMOL.
 <a id="technology-stack"><h2>Technology Stack</h2></a>
 
 | Technology | Version| Description                 |
-|------------|-------------------------------------------|
+|------------|--------------|-----------------------------|
 | PyMOL   2.4   |   2.4    | Molecular graphics program         | 
 | Python  3.7-3.9 | 3.7-3.9      |  Programming language          |
 | JupyterLab  | 2.2   | A IDE for editing Jupyter Notebooks|
