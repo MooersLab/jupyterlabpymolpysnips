@@ -96,12 +96,12 @@ This API is available for both the incentive and open-source versions of PyMOL.
 
 | Technology | Version| Description                 |
 |------------|--------------|-----------------------------|
-| [PyMOL](https://pymol.org/2/) |   2.4    | Molecular graphics program         | 
+| [PyMOL](https://pymol.org/2/) |   2.4.0    | Molecular graphics program         | 
 | Python | 3.7-3.9      |  Programming language          |
 | [JupyterLab](https://pypi.org/project/jupyterlab/)  | 2.2   | A IDE for editing Jupyter Notebooks|
 | [jupyterlab-snippets-multimenus](https://pypi.org/project/jupyterlab-snippets-multimenus/) | 0.1.2 | Required extension |
 | Node.js     |        | Required by Jupyter and many exensions |
-
+| git        | 2.25.1  | Eases the downloading and updating of the libraries. |
 
 
 Some of the snippets are limited to Python3 code.
@@ -136,9 +136,19 @@ The content of the active part of the snippet is the same in both libraries.
 The commented code in the pymol+ snip library may annoy experineced users who do not need help with editing.
 
 
-
-
 Alternatively, you can download the repository as a zip file by clicking on the green **code** button above.
+However, `git` eases the updating of the libraires are a later time.
+You would navigate to the `multimenus_snippets/pymol` folder and then enter `git pull` to update the library.
+This is far less painful than down downloading the library via as a zip file.
+Repeat for `pymol+` if needed.
+Navigate back to your home directory before running JuptyerLab (e.g. `cd` or `cd ~/`).
+
+Now, fire up JupyterLab. 
+
+```bash
+jupyter lab
+
+````
 
 
 [Return to Table of Contents](#table-of-contents)
