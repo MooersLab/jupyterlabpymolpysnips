@@ -1,7 +1,7 @@
 # jupyterlabpymolpysnips: Templates for writing and running PyMOL in Jupyter Notebooks.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4429336.svg)](https://doi.org/10.5281/zenodo.4429717)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4429717.svg)](https://doi.org/10.5281/zenodo.4429717)
 ![Version](https://img.shields.io/static/v1?label=jupyterlabpymolpysnips&message=0.2&color=brightcolor)
 
 There are many ways to get **PyMOL** running in **JupyterLab**. For details on installing **JupyterLab** and **PyMOL**, go to the [GitHub Page](https://mooerslab.github.io/juptyerlabpymolpysnips/) associated with this project.
