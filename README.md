@@ -31,7 +31,7 @@ For a list of the snippets and their descriptions, also go to the [GitHub Page](
 
 <p>The animation below demonstrates the use of the <b>ao.py</b> snippet in <em>JupyterLab</em> to insert 17 lines of code for generating the ambient occlusion effect.</p>
 
-<p align="center"><img src="gifs/JLaoSnip.gif"></p>
+<p align="center"><img src="gifs/aoUbuntu.gif"></p>
 
 
 The result of applying a variant of the above code to a 27-nucleotide RNA hairpin is shown below.
