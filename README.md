@@ -264,5 +264,21 @@ I can be reached via the Issue tab above or via e-mail: `blaine-mooers at ouhsc.
 
 If you use this library to make figures for publication, please see the *Citation.md* file above.
 
+A paper describing this library was published in April 2021.
+
+
+```bibtex
+@Article{Mooers2021APyMOLSnippetLibraryForJupyterToBoostResearcherProductivity,
+  author    = {Mooers, Blaine HM},
+  journal   = {Computing in Science \& Engineering},
+  title     = {A PyMOL snippet library for Jupyter to boost researcher productivity},
+  year      = {2021},
+  pages     = {47-53},
+  volume    = {23},
+  publisher = {IEEE},
+  doi       = {10.1109/MCSE.2021.3059536},
+}
+```
+
 [Return to Table of Contents](#table-of-contents)
 
