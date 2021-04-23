@@ -64,7 +64,7 @@ This can improve the reproducibility of the computational aspects of your resear
 
 The primary caveat is that the nonPython software will require different kernels. 
 This means that you will have switch kernels to use these packages in the same notebook and that software with different kernels cannot be run in the same cell.
-These are very minor limitations.
+These are minor limitations.
 
 A secondary caveat is that sadly some heavily used structural biology programs have yet to migrate from Python2 to Python3. 
 You may have trouble running a Python2 kernel in **JupyterLab** installed to run with Python3.
@@ -98,14 +98,17 @@ This API is available for both the incentive and open-source versions of **PyMOL
 
 <a id="technology-stack"><h2>Technology Stack</h2></a>
 
-| Technology | Version| Description                 |
-|------------|--------------|-----------------------------|
-| [PyMOL](https://pymol.org/2/) |   2.4.0    | Molecular graphics program         | 
-| Python | 3.7-3.9      |  Programming language          |
-| [JupyterLab](https://pypi.org/project/jupyterlab/)  | 2.2.0   | A IDE for editing Jupyter Notebooks. Version 3.0 does not work with jupyterlab-snippets-multimenus|
-| [jupyterlab-snippets-multimenus](https://pypi.org/project/jupyterlab-snippets-multimenus/) | 0.1.2 | Required extension |
-| Node.js     |  >=10.0.0      | Required by Jupyter and many extensions.   |
-| git        | 2.25.1  | Eases the downloading and updating of the libraries. |
+| Technology                                                                                 | Version  | Description                                                                                        |
+|--------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|
+| [PyMOL](https://pymol.org/2/)                                                              | 2.4.0    | Molecular graphics program                                                                         |
+| Python                                                                                     | 3.7-3.9  | Programming language                                                                               |
+| [JupyterLab](https://pypi.org/project/jupyterlab/)                                          | >=2.0    | A IDE for editing Jupyter Notebooks.                                                              |
+| [jupyterlab-snippets](https://github.com/QuantStack/jupyterlab-snippets)                    | 0.4.0    | Required extension                                                                                |
+| or this alternate pair of programs                                                          |          |                                                                                                    |
+| [JupyterLab](https://pypi.org/project/jupyterlab/)                                         | 2.2.0    | A IDE for editing Jupyter Notebooks. Version 3.0 does not work with jupyterlab-snippets-multimenus |
+| [jupyterlab-snippets-multimenus](https://github.com/QuantStack/jupyterlab-snippets       ) | 0.4.0    | Required extension                                                                                 |
+| Node.js                                                                                    | >=10.0.0 | Required by Jupyter and many extensions.                                                           |
+| git                                                                                        | 2.25.1   | Eases the downloading and updating of the libraries.                                               |
 
 
 Some of the snippets are limited to Python3 code.
@@ -114,10 +117,27 @@ This often merely involves replacing print statements in Python2 with print() fu
 The command-line program **2to3** automates this process. 
 Note that multiple versions of PyMOL can operate side-by-side on a computer, so you do not have to delete that ancient version of **PyMOL**.
 
-JupyterLab needs to be version 2.2.0 for **jupyterlab-snippets-multimenus** to run. 
-The current version of **JupyterLab** is 3.0.
+JupyterLab can use the **jupyterlab-snippets** extension to make the snippets available via a **snippets** pull-down menu.
+This package can be installed by conda, pip, or by the extension manager in Jupyter Lab.
 
-**Node.js** can be downloaded from the developer's site or it can be installed with a package manager.
+Assuming that **JupyterLab**, **jupyterlab-snippets**, and PyMOL are already installed, run the following commands one line at a time,
+
+```bash
+jupyter --path
+cd ~/.local/share/jupyter # change as per output from prior line. Use cd ~/Library/Jupyter on the Mac.
+mkdir snippets
+cd snippets
+git clone https://github.com/MooersLab/jupyterlabpymolpysnips.git pymol
+git clone https://github.com/MooersLab/jupyterlabpymolpysnipsplus.git pymol+
+```
+
+When you open **JupyterLab**, you will find a **snippet** pull-down menu on the JupyterLab menu-bar.
+There will be a **pymol** sub-menu and a **pymol+** sub-menu under this pull-down.
+
+JupyterLab needs to be version >=2.2.0 for **jupyterlab-snippets** to run. 
+The current version of **JupyterLab** is >3.0.
+
+**Node.js** can be downloaded from the developer's site, or it can be installed with a package manager.
 It needs to be more recent than version 10.0.0 
 
 
@@ -125,7 +145,12 @@ It needs to be more recent than version 10.0.0
 
 <a id="installation"><h2>Installation of the snippet library</h2></a>
 
-Assuming that **JupyterLab**, **jupyterlab-snippets-multimenus**, and PyMOL are already installed, run the following commands one line at a time,
+Alternatively, you can use the **jupyterlab-snippets-multimenus** package.
+This package will show on the menu-bar the **pymol** and **pymol+** as separate pull-down menus.
+This approach removes a layer of hierarchy in the pull-down menus, so you can select the snippet of interest faster.
+The downside it that you are locked into using an older version of JupyterLab.
+
+Assuming that **JupyterLab**, **jupyterlab-snippets-multimenus**, and PyMOL are already installed, run the following commands one line at a time:
 
 ```bash
 jupyter --path
@@ -134,7 +159,7 @@ mkdir multimenus_snippets
 cd multimenus_snippets
 git clone https://github.com/MooersLab/jupyterlabpymolpysnips.git pymol
 git clone https://github.com/MooersLab/jupyterlabpymolpysnipsplus.git pymol+
-````
+```
 
 The snippets in the **pymolpysnips+** library have a second copy of the code in a comment with the tab stops marked as follows `${1:default value}`.
 Tab stops are sites of parameter values that may need to be edited to customize the snippet.
@@ -157,8 +182,7 @@ Now, fire up **JupyterLab**.
 
 ```bash
 jupyter lab
-
-````
+```
 
 
 [Return to Table of Contents](#table-of-contents)
