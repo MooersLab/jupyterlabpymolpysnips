@@ -105,7 +105,16 @@ This API is available for both the incentive and open-source versions of **PyMOL
 | Python                                                                                     | 3.7-3.9  | Programming language                                                                               |
 | [JupyterLab](https://pypi.org/project/jupyterlab/)                                          | >=2.0    | A IDE for editing Jupyter Notebooks.                                                              |
 | [jupyterlab-snippets](https://github.com/QuantStack/jupyterlab-snippets)                    | 0.4.0    | Required extension                                                                                |
-| or this alternate pair of programs                                                          |          |                                                                                                    |
+
+## or use this alternate set of programs  
+
+You may have to create a new conda env to install the older versin ofo JupyterLab. The jupyterlab-snippets extension provide access to the snippets via a single *snippets* menu item rather then a *pymol* menu item.
+
+
+| Technology                                                                                 | Version  | Description                                                                                        |
+|--------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|
+
+|                                                         |          |                                                                                                    |
 | [JupyterLab](https://pypi.org/project/jupyterlab/)                                         | 2.2.0    | A IDE for editing Jupyter Notebooks. Version 3.0 does not work with jupyterlab-snippets-multimenus |
 | [jupyterlab-snippets-multimenus](https://github.com/QuantStack/jupyterlab-snippets       ) | 0.4.0    | Required extension                                                                                 |
 | Node.js                                                                                    | >=10.0.0 | Required by Jupyter and many extensions.                                                           |
