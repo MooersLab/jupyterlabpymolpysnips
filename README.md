@@ -97,25 +97,27 @@ This API is available for both the incentive and open-source versions of **PyMOL
 [Return to Table of Contents](#table-of-contents)
 
 
-<a id="technology-stack"><h2>Technology Stack</h2></a>
+<a id="technology-stack"><h2>Technology Stack for </h2></a>
 
 | Technology                                                                                 | Version  | Description                                                                                        |
 |--------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|
 | [PyMOL](https://pymol.org/2/)                                                              | 2.4.0    | Molecular graphics program                                                                         |
-| Python                                                                                     | 3.7-3.9  | Programming language                                                                               |
+| Python                                                                                     | 3.7-3.8  | Programming language                                                                               |
 | [JupyterLab](https://pypi.org/project/jupyterlab/)                                          | >=2.0    | A IDE for editing Jupyter Notebooks.                                                              |
-| [jupyterlab-snippets](https://github.com/QuantStack/jupyterlab-snippets)                    | 0.4.0    | Required extension                                                                                |
+| [jupyterlab-snippets](https://github.com/QuantStack/jupyterlab-snippets)                    | 0.4.0 or 0.4.1    | Required extension                                                                                |
+| Node.js                                                                                    | >=10.0.0 | Required by Jupyter and many extensions.                                                           |
+| git                                                                                        | 2.25.1   | Eases the downloading and updating of the libraries.                                               |
+
 
 ## or use this alternate set of programs  
 
-You may have to create a new conda env to install the older versin ofo JupyterLab. The jupyterlab-snippets extension provide access to the snippets via a single *snippets* menu item rather then a *pymol* menu item.
-
+You may have to create a new conda env to install the older version of JupyterLab. 
 
 | Technology                                                                                 | Version  | Description                                                                                        |
 |--------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|
-
-|                                                         |          |                                                                                                    |
-| [JupyterLab](https://pypi.org/project/jupyterlab/)                                         | 2.2.0    | A IDE for editing Jupyter Notebooks. Version 3.0 does not work with jupyterlab-snippets-multimenus |
+| [PyMOL](https://pymol.org/2/)                                                              | >2.4.0    | Molecular graphics program                                                                         |
+| Python                                                                                     | 3.7-3.8  | Programming language                           
+| [JupyterLab](https://pypi.org/project/jupyterlab/)                                         | >2.2.0    | A IDE for editing Jupyter Notebooks. Version 3.0 does not work with jupyterlab-snippets-multimenus |
 | [jupyterlab-snippets-multimenus](https://github.com/QuantStack/jupyterlab-snippets       ) | 0.4.0    | Required extension                                                                                 |
 | Node.js                                                                                    | >=10.0.0 | Required by Jupyter and many extensions.                                                           |
 | git                                                                                        | 2.25.1   | Eases the downloading and updating of the libraries.                                               |
@@ -145,10 +147,13 @@ When you open **JupyterLab**, you will find a **snippet** pull-down menu on the 
 There will be a **pymol** sub-menu and a **pymol+** sub-menu under this pull-down.
 
 JupyterLab needs to be version >=2.2.0 for **jupyterlab-snippets** to run. 
-The current version of **JupyterLab** is >3.0.
+The current version of **JupyterLab** is 3.3.4.
 
-You can install **Node.js**  from the developer's site or with a package manager.
+You can install **Node.js** from the Node.js developer's web site or with a package manager.
 It needs to be more recent than version 10.0.0. 
+Be ware that Anaconda has in the past installed ancient versions of node and that you may have to set the version number to install a newer version of node via Anaconda.
+You may have better luck using the installer from the developer. 
+Run it in the active conda env where you want to run jupyterlab.
 
 [Return to Table of Contents](#table-of-contents)
 
