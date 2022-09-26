@@ -304,7 +304,6 @@ A paper describing this library was published in April 2021.
 - [orgpymolpysnips](https://github.com/MooersLab/orgpymolpysnips)
 - [rstudiopymolpysnips](https://github.com/MooersLab/rstudiopymolpysnips)
 - [taggedpymolpysnips](https://github.com/MooersLab/taggedpymolpysnips)
-- [jupyterlabpymolpysnips](https://github.com/MooersLab/jupyterlabpymolpysnips)
 - [colabOpenSourcePyMOLpySnips](https://github.com/MooersLab/colabOpenSourcePyMOLpySnips)
 - [colabPyMOLpySnips](https://github.com/MooersLab/colabPyMOLpySnips)
 - [PyMOLwallhangings](https://github.com/MooersLab/PyMOLwallhangings)
