@@ -89,7 +89,9 @@ This workaround enables you to carry on with your modern reproducible research p
 
 If you are not ready to write PyMOL scripts, please consider using [PyMOL shortcuts](https://github.com/MooersLab/pymolshortcuts) to enhance your productivity in **PyMOL** interactive sessions.
 For example, the above ambient occlusion effect can be invoked at any time by entering `AO` at the **PyMOL** prompt if the *pymolshortcuts.py* file has been loaded.
-These shortcuts can also be invoked in a **Jupyter Notebook** by submitting them as arguments to the cmd.do() method, (e.g., cmd.do("AO") to generate the ambient occlusion effect.)## Application Description
+These shortcuts can also be invoked in a **Jupyter Notebook** by submitting them as arguments to the cmd.do() method, (e.g., cmd.do("AO") to generate the ambient occlusion effect.)
+
+## Application Description
 
 The **jupyterlabpymolpysnips** library contains 260 code fragments (i.e., templates or snippets) written in Python to run PyMOL in **JupyterLab** via **PyMOL**'s **Python** API.
 This API is only available for recent versions of **PyMOL** that depend on Python3.
