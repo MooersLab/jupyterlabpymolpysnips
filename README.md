@@ -78,9 +78,9 @@ This workaround enables you to carry on with your modern reproducible research p
 
 ### But I will miss the interactive viewport in PyMOL!
 
-1. There is nothing stopping you from running the PyMOL GUI next to your **JupyterLab** session. You can adjust the molecule's orientation manual, run the **get_view** command, and copy the output in the command history window from PyMOL and paste it into a cell in the **Jupyter Notebook**. The one line of settings return by the **rv** shortcut are much easier to use. 
+1. There is nothing stopping you from running the PyMOL GUI next to your **JupyterLab** session. You can adjust the molecule's orientation manually, run the **get_view** command, copy the output in the command history window from PyMOL, and paste it into a cell in the **Jupyter Notebook**. The one line of settings returned by the **rv** shortcut are much easier to use. The **rv** shortcut is found in the the [pymolshortcuts.py](https://github.com/MooersLab/pymolshortcuts) script.
 
-2. You really do not need the viewport. With 10-15 minutes of practice, you can master the rapid iterating of rotate and translate commands to adjust the molecule's orientation with greater precision than via manipulation of the mouse.
+2. **You will discover that you really do not need the PyMOL viewport.** With 10-15 minutes of practice, you can master the rapid iterating of the rotate and translate commands to adjust the molecule's orientation with much greater precision than via manipulation of the mouse. Iteratively issuing the rotate and the translate commands is less likely to cause repetitive stress injury than the use of the mouse to reorient the molecule. These injuries occur frequently when generating numerous molecular graphics images up against a deadline.
 
 [Return to Table of Contents](#table-of-contents)
 
